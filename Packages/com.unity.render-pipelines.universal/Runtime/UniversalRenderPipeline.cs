@@ -929,19 +929,7 @@ namespace UnityEngine.Rendering.Universal
                 baseCameraData.cameraTargetDescriptor.graphicsFormat = originalTargetDesc.graphicsFormat;
             }
             baseCameraData.cameraTargetDescriptor.msaaSamples = originalTargetDesc.msaaSamples;
-
-            if (baseCameraData.isDefaultViewport)
-            {
-                // When viewport is default, intermediate textures created with this descriptor will have dynamic resolution enabled.
-                baseCameraData.cameraTargetDescriptor.useDynamicScale = true;
-            }
-            else
-            {
-                // Some effects like Vignette computes aspect ratio from width and height. We have to take viewport into consideration if it is not default viewport.
-                baseCameraData.cameraTargetDescriptor.width = baseCameraData.pixelWidth;
-                baseCameraData.cameraTargetDescriptor.height = baseCameraData.pixelHeight;
-				baseCameraData.cameraTargetDescriptor.useDynamicScale = false;
-            }
+            baseCameraData.cameraTargetDescriptor.useDynamicScale = true;
 
             bool isDefaultXRViewport = (!(Math.Abs(xrViewport.x) > 0.0f || Math.Abs(xrViewport.y) > 0.0f ||
                 Math.Abs(xrViewport.width) < xr.renderTargetDesc.width ||
