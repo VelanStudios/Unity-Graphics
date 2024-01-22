@@ -9,7 +9,7 @@ namespace UnityEngine.Experimental.Rendering
     /// </summary>
     public struct XRPassCreateInfo
     {
-        public static RenderTargetIdentifier mvInvalidRT = -1;
+        public static RenderTargetIdentifier mvInvalidRT = new RenderTargetIdentifier(-1,0, CubemapFace.Unknown, -1);
         public bool motionVectorRenderTargetValid { get => motionVectorRenderTarget != mvInvalidRT; }
 
         internal RenderTargetIdentifier renderTarget;
