@@ -14,11 +14,6 @@
 #include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/PathTracing/Shaders/PathTracingVolume.hlsl"
 #endif
 
-float PowerHeuristic(float f, float b)
-{
-    return Sq(f) / (Sq(f) + Sq(b));
-}
-
 float3 GetPositionBias(float3 geomNormal, float bias, bool below)
 {
     return geomNormal * (below ? -bias : bias);
@@ -479,8 +474,10 @@ void AnyHit(inout PathPayload payload : SV_RayPayload, AttributeData attributeDa
     #else
         payload.value *= 1.0 - builtinData.opacity;
     #endif
-        if (Luminance(payload.value) > 0.001)
+        if (Luminance(payload.value) > 0)
+        {
             IgnoreHit();
+        }
 
 #else // _SURFACE_TYPE_TRANSPARENT
 

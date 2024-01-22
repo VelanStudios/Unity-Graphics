@@ -310,6 +310,7 @@ namespace UnityEngine.Rendering.HighDefinition
         public static readonly int _TaaPostParameters1 = Shader.PropertyToID("_TaaPostParameters1");
         public static readonly int _TaaHistorySize = Shader.PropertyToID("_TaaHistorySize");
         public static readonly int _TaaFilterWeights = Shader.PropertyToID("_TaaFilterWeights");
+        public static readonly int _NeighbourOffsets = Shader.PropertyToID("_NeighbourOffsets");
         public static readonly int _TaauParameters = Shader.PropertyToID("_TaauParameters");
         public static readonly int _TaaScales = Shader.PropertyToID("_TaaScales");
 
@@ -324,6 +325,7 @@ namespace UnityEngine.Rendering.HighDefinition
         public static readonly int _CameraSssDiffuseLightingBuffer = Shader.PropertyToID("_CameraSssDiffuseLightingTexture");
         public static readonly int _CameraFilteringBuffer = Shader.PropertyToID("_CameraFilteringTexture");
         public static readonly int _IrradianceSource = Shader.PropertyToID("_IrradianceSource");
+        public static readonly int _InputDepthTexture = Shader.PropertyToID("_InputDepthTexture");
 
         // Planar reflection filtering
         public static readonly int _ReflectionColorMipChain = Shader.PropertyToID("_ReflectionColorMipChain");
@@ -604,6 +606,8 @@ namespace UnityEngine.Rendering.HighDefinition
         public static readonly int _MaxZMaskTexture = Shader.PropertyToID("_MaxZMaskTexture");
         public static readonly int _DilationWidth = Shader.PropertyToID("_DilationWidth");
 
+        public static readonly int _MultiScatteringLUT_RW = Shader.PropertyToID("_MultiScatteringLUT_RW");
+        public static readonly int _MultiScatteringLUT = Shader.PropertyToID("_MultiScatteringLUT");
         public static readonly int _GroundIrradianceTexture = Shader.PropertyToID("_GroundIrradianceTexture");
         public static readonly int _GroundIrradianceTable = Shader.PropertyToID("_GroundIrradianceTable");
         public static readonly int _GroundIrradianceTableOrder = Shader.PropertyToID("_GroundIrradianceTableOrder");
@@ -613,7 +617,6 @@ namespace UnityEngine.Rendering.HighDefinition
         public static readonly int _AerosolSingleScatteringTable = Shader.PropertyToID("_AerosolSingleScatteringTable");
         public static readonly int _MultipleScatteringTexture = Shader.PropertyToID("_MultipleScatteringTexture");
         public static readonly int _MultipleScatteringTable = Shader.PropertyToID("_MultipleScatteringTable");
-        public static readonly int _MultipleScatteringTableOrder = Shader.PropertyToID("_MultipleScatteringTableOrder");
 
         public static readonly int _PlanetaryRadius = Shader.PropertyToID("_PlanetaryRadius");
         public static readonly int _RcpPlanetaryRadius = Shader.PropertyToID("_RcpPlanetaryRadius");
@@ -1220,6 +1223,8 @@ namespace UnityEngine.Rendering.HighDefinition
         public const string kAffectSmoothness = "_AffectSmoothness";
         /// <summary>Enable affect Emission (decal only.</summary>
         public const string kAffectEmission = "_AffectEmission";
+        /// <summary>Exclude from temporal upsamplers and anti aliasing.</summary>
+        public const string kExcludeFromTUAndAA = "_ExcludeFromTUAndAA";
 
         // Internal properties
 
@@ -1236,6 +1241,7 @@ namespace UnityEngine.Rendering.HighDefinition
         internal const string kDecalStencilWriteMask = "_DecalStencilWriteMask";
         internal const string kDecalStencilRef = "_DecalStencilRef";
         internal const string kEnableGeometricSpecularAA = "_EnableGeometricSpecularAA";
+        internal const string kRenderQueueTypeShaderGraph = "_RenderQueueType";
 
         internal const string kUseSplitLighting = "_RequireSplitLighting";
 

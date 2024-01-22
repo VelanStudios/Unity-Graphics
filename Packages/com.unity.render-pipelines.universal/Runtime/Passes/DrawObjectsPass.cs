@@ -190,7 +190,8 @@ namespace UnityEngine.Rendering.Universal.Internal
 
                 // TODO RENDERGRAPH: do this as a separate pass, so no need of calling OnExecute here...
                 data.pass.OnExecute(cmd);
-
+                Rect rect = new Rect() { x = 0, y = 0, width = renderingData.cameraData.pixelWidth, height = renderingData.cameraData.pixelHeight };
+                cmd.SetViewport(rect);
                 context.ExecuteCommandBuffer(cmd);
                 cmd.Clear();
 
@@ -230,6 +231,7 @@ namespace UnityEngine.Rendering.Universal.Internal
 
                 // Clean up
                 CoreUtils.SetKeyword(cmd, ShaderKeywordStrings.WriteRenderingLayers, false);
+                cmd.SetViewport(rect);
                 context.ExecuteCommandBuffer(cmd);
                 cmd.Clear();
             }

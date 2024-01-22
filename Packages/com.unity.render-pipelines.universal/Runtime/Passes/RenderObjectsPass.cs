@@ -176,6 +176,8 @@ namespace UnityEngine.Experimental.Rendering.Universal
                 }
                 else
                 {
+                    Rect rect = new Rect() { x = 0, y = 0, width = renderingData.cameraData.pixelWidth, height = renderingData.cameraData.pixelHeight };
+                    cmd.SetViewport(rect);
                     // Ensure we flush our command-buffer before we render...
                     context.ExecuteCommandBuffer(cmd);
                     cmd.Clear();
